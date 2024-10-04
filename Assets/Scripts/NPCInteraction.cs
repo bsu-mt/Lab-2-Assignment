@@ -4,26 +4,22 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class NPCInteraction : MonoBehaviour
 {
     // The target position where the player will be teleported.
-    public Transform playerDestination;
+    /*public Transform playerDestination;*/
 
     // Tags for identifying the left and right hand controllers.
     public string leftHandTag = "Left";
     public string rightHandTag = "Right";
+    [SerializeField] private SkinnedMeshRenderer smr;
 
-    // Start is called before the first frame update.
-    // Check if the playerDestination is properly set in the inspector.
+    
     private void Start()
     {
-        if (playerDestination == null)
-        {
-            // Display a warning in the console if the playerDestination is not assigned.
-            Debug.LogWarning("Player destination is not set!");
-        }
+        
     }
 
     // This method is responsible for teleporting the player.
     // It is triggered when an object enters the interactable range (Select Enter).
-    public void TeleportPlayer(SelectEnterEventArgs args)
+    /*public void TeleportPlayer(SelectEnterEventArgs args)
     {
         // If playerDestination is not set, exit the method.
         if (playerDestination == null) return;
@@ -52,25 +48,27 @@ public class NPCInteraction : MonoBehaviour
             // Log a message confirming the teleportation.
             Debug.Log("Teleported!");
         }
-    }
+    }*/
 
-    // This method is triggered when an interactable object is activated (e.g., A button press).
-    public void Interact(ActivateEventArgs args)
+    // This method is triggered when an interactable object is activated.
+    public void Select(BaseInteractionEventArgs args)
     {
-        // Get the interactor object (the object performing the interaction, e.g., hand controller).
+        // Get the interactor object (hand controller).
         var interactor = args.interactorObject;
 
         // If the interactor or its transform is null, exit the method.
         if (interactor == null || interactor.transform == null) return;
 
-        // Log which interactor triggered the interaction.
-        Debug.Log("Interact triggered by: " + interactor.transform.name);
+        // Log which interactor triggered the selection.
+        Debug.Log("Select triggered by: " + interactor.transform.name);
 
-        // Check if the interactor's tag matches the right hand tag (used for activating interactions).
+        // Check if the interactor's tag matches the right hand tag (used for selecting interactions).
         if (interactor.transform.CompareTag(rightHandTag))
         {
-            // Log a message for successful interaction.
+            // Log a message for successful selection.
+            // smr.enabled = !smr.enabled; // Toggle instead of setting to the same value.
             Debug.Log("Happy Halloween!");
         }
     }
+
 }

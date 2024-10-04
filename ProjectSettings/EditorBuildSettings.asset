@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/polyperfect/Poly Halloween/- Demo Scenes/05 Graveyard.unity
+    guid: 669716b1cdf60e943962eae184f2693e
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 760501cabeca7bc448d27a0869414e3c, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: c57c8c0ca89887340ad2f760527cff11, type: 2}
