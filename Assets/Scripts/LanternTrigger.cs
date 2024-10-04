@@ -3,7 +3,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class LanternLightToggle : MonoBehaviour
 {
-    public Light pointLight; // 拖动灯光对象到这里 (Point Light)
+    public Light pointLight; 
     private bool isLightOn = true;
 
     public void Select(BaseInteractionEventArgs args)
@@ -18,7 +18,7 @@ public class LanternLightToggle : MonoBehaviour
         Debug.Log("Select triggered by: " + interactor.transform.name);
 
         // Check if the interactor's tag matches the right hand tag, used for selecting interactions.
-        if (interactor.transform.CompareTag("Right")) // Assuming "RightHand" is the tag for right hand interactor
+        if (interactor.transform.CompareTag("Right")) // Assuming "Right" is the tag for right hand interactor
         {
             // Toggle the light on or off.
             isLightOn = !isLightOn;
